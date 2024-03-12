@@ -42,23 +42,23 @@ function level:close_file()
     end
 end
 
---function level:from_file(name)
---    local file = io.open(name, "r")
---    local rows = {}
---    local longest = 0
+function level:from_file(name)
+    local file = io.open(name, "r")
+    local rows = {}
+    local longest = 0
     
---    for line in file:lines() do
---        longest = math.max(longest, #line)
---        table.insert(rows, line)
---    end
+    for line in file:lines() do
+        longest = math.max(longest, #line)
+        table.insert(rows, line)
+    end
     
---    for i = 1, #rows do
---        rows[i] = rows[i] .. string.rep(" ", longest - #rows[i])
---    end
+    for i = 1, #rows do
+        rows[i] = rows[i] .. string.rep(" ", longest - #rows[i])
+    end
     
     
---    self:from_string(table.concat(rows, "\n") .. "\n")
---end
+    self:from_string(table.concat(rows, "\n") .. "\n")
+end
 
 function level:load_next()
     

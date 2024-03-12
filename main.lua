@@ -6,8 +6,8 @@ function love.load()
     love.keyboard.setKeyRepeat(true)
     
     level = require "level"
-    level:load_file("level.txt")
-    level:load_next()
+    level:from_file("level.txt")
+--    level:load_next()
     
     state = "game"
     
@@ -32,7 +32,7 @@ function love.load()
 end
 
 function love.update()
-    love.window.setTitle(level:get_level_title())
+    love.window.setTitle(level:get_level_title() or "")
 end
 
 function love.keypressed(key)
